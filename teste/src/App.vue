@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img class="img" alt="Vue logo" src="./assets/logo.png">
+    <div class="container">
+      <input class="Bsearch" type="text" v-model="search" placeholder="Pesquisar..."/>
+      <div class="container_btns">
+        <button class="btn_see">Ver Todos</button>
+        <button v-on:click="filterList" class="btn_search">Buscar</button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  data(){
+    return{
+      searchList:['React','Native','Vue'],
+      search: '',
+    }
+  },
+  methods:{
+    filterList: function(){
+      return this.searchList.filter((item) => {
+        var bol = item.toLowerCase().includes(this.search.toLowerCase())
+        if(bol){
+          console.log(bol)
+          return;
+        }
+      });
+    }
+  },
+  components: {},
+
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" >
+  @import 'main.scss';
+  
 </style>

@@ -1,0 +1,86 @@
+$btn_blue: #344FA5;
+$btn_green: #6FCF97;
+$border_color: #90A4AE;
+$margin_top: 20px;
+
+$breakpoint-monitor: 1201px;
+$breakpoint-desktop: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 480px;
+
+//class and ids
+#app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.container{
+    @media(min-width: $breakpoint-monitor){
+        width:40%;
+    }
+    @media(max-width: $breakpoint-desktop){
+        width: 50%;
+    }
+    @media(max-width: $breakpoint-tablet){
+        width: 70%;    
+    }
+    @media(max-width: $breakpoint-phone){
+        width: 85%;
+    }
+}
+
+.container_btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: $margin_top;
+}
+//---
+button{
+    @media(min-width: $breakpoint-monitor){
+        width: 200px;    
+    }
+    @media(max-width: $breakpoint-desktop){
+        width: 200px;    
+    }
+    @media(max-width: $breakpoint-tablet){
+        width: 160px;    
+    }
+    @media(max-width: $breakpoint-phone){
+        width: 127px;
+    }
+    
+    height: 50px;
+    border-radius: 4px;
+    padding: 0px;
+}
+
+.img{
+    width: 200px;
+    height: 200px;
+}
+
+.Bsearch{
+    width: 97%;
+    height: 30px;
+    margin-top: $margin_top;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: $border_color;
+}
+
+.btn_see{
+    background-color: $btn_blue;
+    color: white;
+    border: none;
+}
+
+.btn_search{
+    background-color: $btn_green;
+    color: white;
+    border: none;
+}
