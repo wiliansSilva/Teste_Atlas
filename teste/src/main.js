@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
-import List from './pages/UserList.vue'
+import List from './pages/user_list/Index.vue'
 import Search from './pages/search/Index.vue'
 
 Vue.use(VueRouter)
@@ -13,7 +13,7 @@ const router = new VueRouter({
       component: List
     },
     {
-      path: '/pesquisar',
+      path: '/',
       component: Search
     }
   ]

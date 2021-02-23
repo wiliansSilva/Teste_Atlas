@@ -1,0 +1,25 @@
+$margin: 20px;
+.containerSelect{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin-top: $margin;
+}
+.containerSonSelect{
+    width: 80%;
+    display: flex;
+}
+.input_search{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.5);
+    padding-left: 30px;
+}
+
+.icon{
+    width: 25px !important;
+    height: 25px !important;
+    position: absolute;
+    margin: 5px;
+}

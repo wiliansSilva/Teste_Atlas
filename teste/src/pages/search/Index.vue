@@ -4,7 +4,7 @@
     <div class="container">
       <input class="Bsearch" type="text" v-model="search" placeholder="Pesquisar..."/>
       <div class="container_btns">
-        <button class="btn_see">Ver Todos</button>
+        <button v-on:click="list" class="btn_see">Ver Todos</button>
         <button v-on:click="filterList" class="btn_search">Buscar</button>
       </div>
     </div>
@@ -31,6 +31,9 @@ export default {
           return;
         }
       });
+    },
+    list: function(){
+      window.location.href = "http://localhost:8080/#/listausuario";
     }
   },
   components: {},
