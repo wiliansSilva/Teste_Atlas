@@ -23,6 +23,7 @@ $breakpoint-phone: 480px;
 #img{
     width: 30px !important;
     height: 30px !important;
+    
 
     @media(max-width: $breakpoint-phone){
         width: 20px !important;

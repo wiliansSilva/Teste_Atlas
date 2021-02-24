@@ -1,26 +1,61 @@
 <template>
   <div class="containerList">
-    <Toolbar class="tlb"/>
-    <SearchBar/>
+    <Toolbar class="tlb" />
+    <SearchBar />
+    <div class="containerItems">
+      <div class="containerItem">
+        <img class="imgPerfil" />
+        <h3 id="name">Julia lopez</h3>
+      </div>
+      <div class="containerItem">
+        <img class="imgPerfil" />
+        <h3 id="name">Julia lopez</h3>
+      </div>
+      <div class="containerItem">
+        <img class="imgPerfil" />
+        <h3 id="name">Julia lopez</h3>
+      </div>
+      <div class="containerItem">
+        <img class="imgPerfil" />
+        <h3 id="name">Julia lopez</h3>
+      </div>
+      <div class="containerItem">
+        <img class="imgPerfil" />
+        <h3 id="name">Julia lopez</h3>
+      </div>
+      <div class="containerItem">
+        <img class="imgPerfil" />
+        <h3 id="name">Julia lopez</h3>
+      </div>
+      <div class="containerItem">
+        <img class="imgPerfil" />
+        <h3 id="name">Julia lopez</h3>
+      </div>
+      <div class="containerItem">
+        <img class="imgPerfil" />
+        <h3 id="name">Julia lopez</h3>
+      </div>
+      <div class="containerItem">
+        <img class="imgPerfil" />
+        <h3 id="name">Julia lopez</h3>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-
-import Toolbar from '../../components/toolbar/Index.vue'
-import SearchBar from '../../components/search/Index.vue'
+import Toolbar from "../../components/toolbar/Index.vue";
+import SearchBar from "../../components/search/Index.vue";
 
 export default {
-  name: 'Index',
+  name: "Index",
   components: {
     Toolbar,
     SearchBar
-  },
-
-}
+  }
+};
 </script>
 
 <style lang="scss" >
-  @import 'index.scss';
-  
+@import "index.scss";
 </style>
