@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,200&display=swap');
 
+
+$margin-side: 20px;
+$breakpoint-monitor: 1201px;
+$breakpoint-desktop: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 480px;
 $margin: 20px;
 
 body{
@@ -9,6 +15,7 @@ body{
 .containerList{
     height: 100vH;
     width: 100vW;
+    background-color: #F8FAFB;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,6 +38,9 @@ body{
 }
 .tlb{
     width: 90%;
+    @media(min-width: $breakpoint-tablet){
+        width: 100%;
+    }
 }
 
 .imgPerfil{

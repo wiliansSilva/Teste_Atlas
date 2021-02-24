@@ -15,15 +15,43 @@ $breakpoint-phone: 480px;
     align-items: center;
     border-bottom: 1px solid #90A4AE;
     
+    @media(min-width: $breakpoint-tablet){
+        border-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        background-color: white;
+        padding: 10px;
+        box-shadow:  0px 0px 0px 0 #000, 
+                     0 1px 10px 0px #ccc,
+                     0 0px 2px 0px #fff;
+    }
+
     @media(max-width: $breakpoint-phone){
         height: 65px !important;
+    }
+}
+.containerLabelLogo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 12%;
+}
+#imgLogo{
+    width: 80px;
+    height: 80px;
+    
+    @media(max-width: $breakpoint-tablet){
+        display: none;
     }
 }
 
 #img{
     width: 30px !important;
     height: 30px !important;
-    
+
+    @media(min-width: $breakpoint-tablet){
+        display: none;
+    }
 
     @media(max-width: $breakpoint-phone){
         width: 20px !important;
@@ -35,10 +63,23 @@ $breakpoint-phone: 480px;
 #label{
     margin-left: $margin-side;
     color: #263238;
+    margin-left: 0px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 
+    @media(min-width: $breakpoint-tablet){
+        display: none;
+    }
+
     @media(max-width: $breakpoint-phone){
         font-size: 18px;
+    }
+}
+
+#labelGit{
+    margin-left: $margin-side;
+
+    @media(max-width: $breakpoint-tablet){
+        display: none;
     }
 }
