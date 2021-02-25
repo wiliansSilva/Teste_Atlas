@@ -6,11 +6,31 @@ $breakpoint-monitor: 1201px;
 $breakpoint-desktop: 1024px;
 $breakpoint-tablet: 768px;
 $breakpoint-phone: 480px;
-$margin: 20px;
+
 
 body{
     margin: 0px;
     padding: 0px;
+}
+.containerSearchList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+}
+.containerSearchLabel{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 80%;
+    justify-content: space-between;
+    
+    margin-top: $margin-side;
+
+    @media(max-width: $breakpoint-tablet){
+        display: none;
+    }
 }
 .containerList{
     height: 100vH;
@@ -20,11 +40,23 @@ body{
     flex-direction: column;
     align-items: center;
 }
+
 .containerItems{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media(min-width: $breakpoint-tablet){
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        order: 5;
+        background-color: white;
+        width: 80%;
+        
+    }
 }
 .containerItem{
     display: flex;
@@ -32,9 +64,19 @@ body{
     align-items: center;
     justify-content: flex-start;
     width: 75%;
-    margin-top: $margin;
+    margin-top: $margin-side;
     padding: 10px;
     border-bottom: 1px solid black;
+    @media(min-width: $breakpoint-tablet){
+        width: 200px;
+        height: 200px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #DEDEDE;
+        flex-basis: 15%;
+        margin-bottom: $margin-side;
+    }
 }
 .tlb{
     width: 90%;
@@ -55,5 +97,25 @@ body{
     color: #162668, 100%;
     font-size: 18px;
     font-weight: 600;
-    margin-left: $margin;
+    margin-left: $margin-side;
+
+    @media(min-width: $breakpoint-tablet){
+        margin-left: 0px;
+    }
+}
+
+#labelResults{
+    margin-left: 8%;
+}
+
+#searchBarMob{
+    @media(min-width: $breakpoint-tablet){
+        display: none;
+    }   
+}
+
+#listDivider{
+    width: 70%;
+    height: 1px;
+    background-color: #DEDEDE;
 }

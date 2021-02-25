@@ -14,8 +14,10 @@ export default {
       resultSearch: ''
     }
   },
-  methods:{
-    
+  watch:{
+    resultSearch: function(){
+      this.$emit('childResponse', this.resultSearch);
+    }
   }
 }
 </script>

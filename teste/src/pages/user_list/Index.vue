@@ -1,43 +1,20 @@
 <template>
   <div class="containerList">
     <Toolbar class="tlb" />
-    <SearchBar />
-    <div class="containerItems">
-      <div class="containerItem">
-        <img class="imgPerfil" />
-        <h3 id="name">Julia lopez</h3>
+    <SearchBar @childResponse="resp" id="searchBarMob" />
+    <div class="containerSearchList">
+      <div class="containerSearchLabel">
+        <h1 id="labelResults">Search Results</h1>
+        <SearchBar @childResponse="resp"/>
       </div>
-      <div class="containerItem">
-        <img class="imgPerfil" />
-        <h3 id="name">Julia lopez</h3>
-      </div>
-      <div class="containerItem">
-        <img class="imgPerfil" />
-        <h3 id="name">Julia lopez</h3>
-      </div>
-      <div class="containerItem">
-        <img class="imgPerfil" />
-        <h3 id="name">Julia lopez</h3>
-      </div>
-      <div class="containerItem">
-        <img class="imgPerfil" />
-        <h3 id="name">Julia lopez</h3>
-      </div>
-      <div class="containerItem">
-        <img class="imgPerfil" />
-        <h3 id="name">Julia lopez</h3>
-      </div>
-      <div class="containerItem">
-        <img class="imgPerfil" />
-        <h3 id="name">Julia lopez</h3>
-      </div>
-      <div class="containerItem">
-        <img class="imgPerfil" />
-        <h3 id="name">Julia lopez</h3>
-      </div>
-      <div class="containerItem">
-        <img class="imgPerfil" />
-        <h3 id="name">Julia lopez</h3>
+      <div id="listDivider"></div>
+      <div class="containerItems">
+
+        <div v-for="post in filteredList" :key="post.id" class="containerItem">
+          <img class="imgPerfil" />
+          <h3 id="name">{{post.name}}</h3>
+        </div>
+
       </div>
     </div>
   </div>
@@ -52,6 +29,56 @@ export default {
   components: {
     Toolbar,
     SearchBar
+  },
+  data() {
+    return {
+      search: "",
+      postList: [
+        {
+          id:0,
+          name: "wilians",
+          foto: "foto1"
+        },
+        {
+          id:1,
+          name: "bruno",
+          foto: "foto2"
+        },
+        {
+          id:2,
+          name: "kauane",
+          foto: "foto3"
+        },
+        {
+          id:3,
+          name: "bianca",
+          foto: "foto4"
+        },
+        {
+          id:4,
+          name: "tobias",
+          foto: "foto4"
+        },
+        {
+          id:5,
+          name: "karen",
+          foto: "foto5"
+        }
+        
+      ]
+    };
+  },
+  computed: {
+    filteredList() {
+      return this.postList.filter(post => {
+        return post.name.toLowerCase().includes(this.search.toLowerCase());
+      });
+    }
+  },
+  methods:{
+    resp(params){
+      this.search = params
+    }
   }
 };
 </script>

@@ -1,9 +1,18 @@
+$breakpoint-monitor: 1201px;
+$breakpoint-desktop: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 480px;
 $margin: 20px;
 .containerSelect{
     width: 90%;
     display: flex;
     justify-content: center;
     margin-top: $margin;
+
+    @media(min-width: $breakpoint-tablet){
+        width: 40%;
+        margin-right: 4%;
+    }
 }
 .containerSonSelect{
     width: 80%;
