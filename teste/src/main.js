@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import List from './pages/user_list/Index.vue'
 import Search from './pages/search/Index.vue'
+import Profile from './pages/profile/Index.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,10 @@ const router = new VueRouter({
     {
       path: '/',
       component: Search
+    },
+    {
+      path: '/profile',
+      component: Profile
     }
   ]
 })

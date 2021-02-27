@@ -1,6 +1,6 @@
 <template>
   <div class="containerList">
-    <Toolbar class="tlb" />
+    <Toolbar title="Lista de Usuários" class="tlb" />
     <SearchBar @childResponse="resp" id="searchBarMob" />
     <div class="containerSearchList">
       <div class="containerSearchLabel">

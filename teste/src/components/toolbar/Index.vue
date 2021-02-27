@@ -5,7 +5,7 @@
       <img id="imgLogo" src="../../assets/logo.png">
       <h1 id="labelGit">GitSearch</h1>
     </div>
-    <h2 id="label">Lista de Usuários</h2>
+    <h2 id="label">{{title}}</h2>
   </div>
 </template>
 
@@ -14,7 +14,9 @@
 
 export default {
   name: 'Index',
-  
+  props:{
+    title: String
+  },
   components: {},
 
 }
