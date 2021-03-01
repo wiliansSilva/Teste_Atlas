@@ -13,22 +13,27 @@
 
 <script>
 
-
+import list from '../../services/listUser'
 export default {
   name: 'Index',
   data(){
     return{
       searchList:['React','Native','Vue'],
       search: '',
+      listUser: []
     }
   },
   methods:{
     filterList: function(){
-      return this.searchList.filter((item) => {
-        var bol = item.toLowerCase().includes(this.search.toLowerCase())
+      return this.listUser.filter((item) => {
+        var bol = item.login.toLowerCase().includes(this.search.toLowerCase())
         if(bol){
-          console.log(bol)
+          localStorage.setItem('userId',item.id);
+          localStorage.setItem('name',item.login)
+          window.location.href = "http://localhost:8080/#/profile";
           return;
+        }else{
+          console.log('nao')
         }
       });
     },
@@ -36,7 +41,10 @@ export default {
       window.location.href = "http://localhost:8080/#/listausuario";
     }
   },
-  components: {},
+   async created(){
+    const response = await list.listUser();
+    this.listUser = response.data
+  },
 
 }
 </script>

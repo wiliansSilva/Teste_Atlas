@@ -10,11 +10,12 @@
       <div id="listDivider"></div>
       <div class="containerItems">
 
-        <div v-for="post in filteredList" :key="post.id" class="containerItem">
-          <img class="imgPerfil" />
-          <h3 id="name">{{post.name}}</h3>
+        <div v-on:click="profile(post.id)" v-for="(post,index) in filteredList" :key="index" class="containerItem">
+          <img class="imgPerfil" :src="post.avatar_url"/>
+          <h3 id="name">{{post.login}}</h3>
         </div>
-
+        <div v-if="loader" class="circleLoader"/>
+        <div v-if="filteredList.length" v-observe-visibility="handleScrolledToBottom"></div>
       </div>
     </div>
   </div>
@@ -23,6 +24,8 @@
 <script>
 import Toolbar from "../../components/toolbar/Index.vue";
 import SearchBar from "../../components/search/Index.vue";
+import List from "../../services/listUser"
+import Swal from "sweetalert2";
 
 export default {
   name: "Index",
@@ -33,53 +36,48 @@ export default {
   data() {
     return {
       search: "",
-      postList: [
-        {
-          id:0,
-          name: "wilians",
-          foto: "foto1"
-        },
-        {
-          id:1,
-          name: "bruno",
-          foto: "foto2"
-        },
-        {
-          id:2,
-          name: "kauane",
-          foto: "foto3"
-        },
-        {
-          id:3,
-          name: "bianca",
-          foto: "foto4"
-        },
-        {
-          id:4,
-          name: "tobias",
-          foto: "foto4"
-        },
-        {
-          id:5,
-          name: "karen",
-          foto: "foto5"
-        }
-        
-      ]
+      postList: [],
+      currentPage: 10,
+      loader: false
     };
   },
   computed: {
     filteredList() {
       return this.postList.filter(post => {
-        return post.name.toLowerCase().includes(this.search.toLowerCase());
+        return post.login.toLowerCase().includes(this.search.toLowerCase());
       });
     }
   },
   methods:{
+    async fetch(){
+      const response = await List.listPerPage(this.currentPage);
+      this.postList = response.data;
+    },
     resp(params){
       this.search = params
+    },
+    handleScrolledToBottom(isVisible){
+      if(!isVisible){return}
+      if(this.postList.length == 100){
+        Swal.fire('Não exitem mais itens')
+      }
+      this.loader = true
+      setTimeout(() => {
+        this.currentPage += 10
+        this.fetch()
+        this.loader = false
+      },2000)
+    },
+    profile(user_id){
+      console.log(user_id)
+      
     }
-  }
+  },
+  
+  mounted(){
+    this.fetch();
+  },
+  
 };
 </script>
 
