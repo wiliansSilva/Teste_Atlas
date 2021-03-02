@@ -10,7 +10,7 @@
       <div id="listDivider"></div>
       <div class="containerItems">
 
-        <div v-on:click="profile(post.id)" v-for="(post,index) in filteredList" :key="index" class="containerItem">
+        <div v-on:click="profile(post.id,post.login)" v-for="(post,index) in filteredList" :key="index" class="containerItem">
           <img class="imgPerfil" :src="post.avatar_url"/>
           <h3 id="name">{{post.login}}</h3>
         </div>
@@ -68,9 +68,10 @@ export default {
         this.loader = false
       },2000)
     },
-    profile(user_id){
-      console.log(user_id)
-      
+    profile(user_id,name){
+        localStorage.setItem('userId',user_id);
+        localStorage.setItem('name',name)
+        window.location.href = "http://localhost:8080/#/profile";
     }
   },
   

@@ -1,23 +1,25 @@
 <template>
-  <div class="containerProfile">
+  <div @scroll="handleScrolledToBottom" class="containerProfile">
     <Toolbar title="Perfil" class="tlbProfile" />
     <div class="containerMain">
       <div class="header">
         <img class="imgback" alt="Vue logo" src="../../assets/profileback.png" />
         <img class="imgbackBig" alt="Vue logo" src="../../assets/profileback2.png" />
-        <img class="imgProfileMobile" :src="userDetail.avatar_url"/>
+        <img class="imgProfileMobile" :src="userDetail.avatar_url" />
         <div class="containerImgInfos">
-          <img class="imgProfile" :src="userDetail.avatar_url"/>
+          <div class="containerImgLabel">
+            <img class="imgProfile" :src="userDetail.avatar_url" />
 
-          <div class="containerDeskInfos">
-            <h3 id="labelProfile">{{userDetail.name}}</h3>
-            <div class="containerUserName">
-              <img class="ic1" alt="Vue logo" src="../../assets/icon1.png" />
-              <p>{{userDetail.login}}</p>
+            <div class="containerDeskInfos">
+              <h3 id="labelProfile">{{userDetail.name}}</h3>
+              <div class="containerUserName">
+                <img class="ic1" alt="Vue logo" src="../../assets/icon1.png" />
+                <p>{{userDetail.login}}</p>
+              </div>
             </div>
           </div>
 
-          <div>
+          <div class="containerIcons">
             <div class="containerClasses">
               <div class="item">
                 <div class="iconNum">
@@ -42,7 +44,6 @@
               </div>
             </div>
           </div>
-          
         </div>
       </div>
 
@@ -79,11 +80,11 @@
 
       <div class="containerSubInfos">
         <div class="containerAbProj">
-          <div v-on:click="about" class="abProjHalf">
+          <div v-on:click="about" class="abProjHalf" id="ab">
             <h3>Sobre</h3>
           </div>
           <div class="dividerProfile" />
-          <div v-on:click="project" class="abProjHalf">
+          <div v-on:click="project" class="abProjHalf" id="projectaba">
             <h3>Projetos</h3>
           </div>
         </div>
@@ -105,59 +106,103 @@
           </div>
         </div>
         <div class="containerProjects">
-          <div v-for="proj in projects" :key="proj.id" class="projectItem">
+          <div v-for="(proj,index) in projects" :key="index" class="projectItem">
             <h3>{{proj.name || "Não foi definido"}}</h3>
-            <p>{{proj.description || "Não foi definido"}}</p>
+            <div class="containerDesktopInfos">
+              <p>{{proj.description || "Não foi definido"}}</p>
+              <div class="containerPointerUpdate">
+                <div class="containerPointer">
+                  <img class="pointerlanguage" :style="{'background': getRandomColor()}"/>
+                  <p>{{proj.language || "Não foi definido"}}</p>
+                </div>
+                <p>Atualizado em {{changeData(proj.updated_at)}}</p>
+              </div>
+            </div>
+
             <div class="containerTextProject">
-              <p>{{proj.language || "Não foi definido"}}</p>
+              <div class="containerPointer">
+                  <img class="pointerlanguage" :style="{'background': getRandomColor()}"/>
+                  <p>{{proj.language || "Não foi definido"}}</p>
+                </div>
               <p>Atualizado em {{changeData(proj.updated_at)}}</p>
             </div>
           </div>
+          <div v-if="loader" class="circleLoader" />
         </div>
       </div>
+      <!-- <div v-observe-visibility="handleScrolledToBottom"></div> -->
     </div>
   </div>
 </template>
 
 <script>
 import Toolbar from "../../components/toolbar/Index.vue";
-import User from '../../services/getUser'
-import ProjectsList from '../../services/getProjects'
+import User from "../../services/getUser";
+import ProjectsList from "../../services/getProjects";
 import $ from "jquery";
 
 export default {
   components: {
     Toolbar
   },
-  data(){
-    return{
-      userDetail: '',
+  data() {
+    return {
+      userDetail: "",
       projects: [],
-    }
+      currentPage: 8,
+      loader: false,
+      isProject: false
+    };
   },
-   created(){
-    
-    User.getUser(localStorage.getItem('userId')).then(response => {
-      this.userDetail = response.data
+  mounted() {
+    User.getUser(localStorage.getItem("userId")).then(response => {
+      this.userDetail = response.data;
     });
-    ProjectsList.getProject(localStorage.getItem('name')).then(responseProj => {
-      this.projects = responseProj.data
-    })
+    this.fetch();
   },
   methods: {
+    async fetch() {
+      const response = await ProjectsList.getProject(
+        localStorage.getItem("name"),
+        this.currentPage
+      );
+      this.projects = response.data;
+    },
     about() {
       $(".containerAbout").css("display", "flex");
       $(".containerProjects").css("display", "none");
+      this.isProject = false
     },
     project() {
       $(".containerAbout").css("display", "none");
       $(".containerProjects").attr("style", "display: flex !important");
+      this.isProject = true
     },
-    changeData(data){
-      let d1 = data.slice(0,4);
-      let d2 = data.slice(5,7);
-      let d3 = data.slice(8,10);
-      return d3+'/'+d2+'/'+d1
+    changeData(data) {
+      let d1 = data.slice(0, 4);
+      let d2 = data.slice(5, 7);
+      let d3 = data.slice(8, 10);
+      return d3 + "/" + d2 + "/" + d1;
+    },
+    handleScrolledToBottom({
+      target: { scrollTop, clientHeight, scrollHeight }
+    }) {
+      if (scrollTop + clientHeight >= scrollHeight && this.isProject) {
+        this.loader = true;
+        setTimeout(() => {
+          this.currentPage += 8;
+          this.fetch();
+          this.loader = false;
+        }, 2000);
+      }
+    },
+    getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
     }
   }
 };

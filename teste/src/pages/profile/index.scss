@@ -3,7 +3,7 @@
 $margin-side: 20px;
 $breakpoint-monitor: 1201px;
 $breakpoint-desktop: 1024px;
-$breakpoint-tablet: 768px;
+$breakpoint-tablet: 769px;
 $breakpoint-phone: 480px;
 
 .containerProfile{
@@ -13,7 +13,7 @@ $breakpoint-phone: 480px;
     flex-direction: column;
     align-items: center;
     overflow: scroll;
-
+    background-color: white;
     @media(min-width: $breakpoint-tablet){
         background-color: #F8FAFB;
     }
@@ -26,7 +26,7 @@ $breakpoint-phone: 480px;
     align-items: center;
 
     @media(min-width: $breakpoint-tablet){
-        width: 65%;
+        width: 80%;
         margin-top: $margin-side;
         background-color: white;
     }
@@ -54,9 +54,8 @@ $breakpoint-phone: 480px;
 
     @media(min-width: $breakpoint-tablet){
         flex-direction: column;
-        border-right: 1px solid #CECECE;
         background-color: white;
-        height: 100%;
+        height: 510px;
         width: 50%;
     }
 }
@@ -93,6 +92,8 @@ $breakpoint-phone: 480px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    border-left: 1px solid #CECECE;
+    margin-left: 2px;
 }
 .containerProjects{
     display: none !important;
@@ -101,24 +102,66 @@ $breakpoint-phone: 480px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    background-color: white;
+    border-left: 1px solid #CECECE;
 }
 .containerSubInfos{
+    width: 100%;
     @media(min-width: $breakpoint-tablet){
         display: flex;
         flex-direction: row;
-        width: 100%;
-        height: 100%;
     }
 }
 .containerImgInfos{
     width: 100%;
-    height: 100%;
+    height: 120%;
     position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
 
+    @media(max-width: $breakpoint-tablet){
+        display: none;
+    }
+}
+.containerDeskInfos{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 17%;
+    margin-left: $margin-side;
+
+    @media(max-width: 1619px){
+        margin-bottom: 7%;
+    }
+}
+.containerIcons{
+    margin-bottom: 4%;
+
+    @media(max-width: 1003px){
+        margin-bottom: 6%;
+    }
+}
+.containerImgLabel{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.containerDesktopInfos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.containerPointer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    
+}
+.containerPointerUpdate{
     @media(max-width: $breakpoint-tablet){
         display: none;
     }
@@ -145,12 +188,12 @@ $breakpoint-phone: 480px;
     }
 }
 .imgProfile{
-    background-color: red;
     border-radius: 50%;
     width: 150px;
     height: 150px;
     position: absolute;
     margin-top: 25%;
+    border: 5px solid white;
 
     @media(min-width: $breakpoint-tablet){
         margin-top: 0px;
@@ -161,14 +204,19 @@ $breakpoint-phone: 480px;
         width: 200px;
         height: 200px;
     }
+    @media(min-width: 1346p){
+        width: 160px;
+        height: 160px;
+    }
 }
 .imgProfileMobile{
-    background-color: red;
+    
     border-radius: 50%;
     width: 150px;
     height: 150px;
     position: absolute;
     margin-top: 25%;
+    border: 5px solid white;
     @media(min-width: $breakpoint-tablet){
         display: none;
     }
@@ -190,6 +238,7 @@ $breakpoint-phone: 480px;
     margin-left: 5px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    margin-bottom: 30px;
 
     @media(max-width: $breakpoint-desktop){
         font-size: 13px;
@@ -199,6 +248,7 @@ $breakpoint-phone: 480px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 30px;
 }
 .item p{
     font-family: 'Montserrat', sans-serif;
@@ -226,14 +276,12 @@ $breakpoint-phone: 480px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    cursor: pointer;
 
     @media(min-width: $breakpoint-tablet){
         background-color: #F7F9FA;
         width: 100%;
     }
-}
-.abProjHalf:active{
-    border-bottom: 3px solid #5C97D2;
 }
 .dividerProfile{
     height: 100%;
@@ -241,7 +289,7 @@ $breakpoint-phone: 480px;
     background-color: #90A4AE;
 
     @media(min-width: $breakpoint-tablet){
-        background-color: black;
+        background-color: #90A4AE;
         height: 1px ;
         width: 100%;
     }
@@ -253,6 +301,7 @@ $breakpoint-phone: 480px;
 }
 .projectItem{
     width: 80%;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
 }
 .containerTextProject{
     display: flex;
@@ -260,6 +309,10 @@ $breakpoint-phone: 480px;
     justify-content: space-between;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
     padding-bottom: 10px;
+
+    @media(min-width: $breakpoint-tablet){
+        display: none;
+    }    
 }
 .projectItem h3{
     color: #0366D6;
@@ -268,16 +321,62 @@ $breakpoint-phone: 480px;
 .projectItem p{
     color: #586069;
     font-family: 'Montserrat', sans-serif;
+    max-width: 450px;
+
+    @media(max-width: 1530px){
+        max-width: 350px;
+    }
+    @media(max-width: 1284px){
+        max-width: 250px;
+    }
+    @media(max-width: 1058px){
+        max-width: 150px;
+    }
+    @media(max-width: 864px){
+        max-width: 109px;
+    }
+    @media(max-width: $breakpoint-tablet){
+        max-width: 100%;
+    }
+
 }
 .containerDeskInfos h3{
     @media(max-width: $breakpoint-desktop){
-        font-size: 25px !important;
+        font-size: 20px !important;
     }
 }
 #labelProfile{
     margin-top: 100px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 34px;
+    font-size: 32px;
     margin-bottom: 0px;
+
+    @media(max-width: 1346px){
+        font-size: 21px;
+    }
+}
+.pointerlanguage{
+    width: 15px;
+    height: 15px;
+    clip-path: circle(40%);
+    background-color: red;
+}
+.circleLoader{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #283747;
+    border-top: 5px solid #EAECEE;
+    animation: animate 1.5s infinite linear;
+}
+@keyframes animate{
+    0%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
 }
