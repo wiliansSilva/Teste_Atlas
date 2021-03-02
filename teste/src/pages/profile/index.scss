@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,200&display=swap');
+
+$margin-side: 20px;
+$breakpoint-monitor: 1201px;
+$breakpoint-desktop: 1024px;
+$breakpoint-tablet: 769px;
+$breakpoint-phone: 480px;
+
+.containerProfile{
+    width: 100vW;
+    height: 100vH;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+    background-color: white;
+    @media(min-width: $breakpoint-tablet){
+        background-color: #F8FAFB;
+    }
+}
+.containerMain{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media(min-width: $breakpoint-tablet){
+        width: 80%;
+        margin-top: $margin-side;
+        background-color: white;
+    }
+}
+.containerUserName{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.containerClasses{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: $margin-side;
+}
+.containerAbProj{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: #F7F9FA;
+
+    @media(min-width: $breakpoint-tablet){
+        flex-direction: column;
+        background-color: white;
+        height: 510px;
+        width: 50%;
+    }
+}
+.containerbioDesc{
+    width: 80%;
+    margin-top: 100px;
+}
+.containerInfos{
+    width: 80%;
+}
+.containerInfosLabels{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media(min-width: $breakpoint-tablet){
+        display: none;
+    }
+}
+.containerLocation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.containerLocation p{
+    font-family: 'Montserrat', sans-serif;
+    color: #162668;
+    margin-left: 5px;
+}
+.containerAbout{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-left: 1px solid #CECECE;
+    margin-left: 2px;
+}
+.containerProjects{
+    display: none !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border-left: 1px solid #CECECE;
+}
+.containerSubInfos{
+    width: 100%;
+    @media(min-width: $breakpoint-tablet){
+        display: flex;
+        flex-direction: row;
+    }
+}
+.containerImgInfos{
+    width: 100%;
+    height: 120%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @media(max-width: $breakpoint-tablet){
+        display: none;
+    }
+}
+.containerDeskInfos{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 17%;
+    margin-left: $margin-side;
+
+    @media(max-width: 1619px){
+        margin-bottom: 7%;
+    }
+}
+.containerIcons{
+    margin-bottom: 4%;
+
+    @media(max-width: 1003px){
+        margin-bottom: 6%;
+    }
+}
+.containerImgLabel{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.containerDesktopInfos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.containerPointer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    
+}
+.containerPointerUpdate{
+    @media(max-width: $breakpoint-tablet){
+        display: none;
+    }
+}
+.header{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: flex-start;
+
+    @media(min-width: $breakpoint-tablet){
+        justify-content: flex-start;
+    }
+}
+.imgback{
+    width: 100%;
+    height: 80%;
+    position: relative;
+
+    @media(min-width: $breakpoint-tablet){
+        display: none;
+    }
+}
+.imgProfile{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    margin-top: 25%;
+    border: 5px solid white;
+
+    @media(min-width: $breakpoint-tablet){
+        margin-top: 0px;
+        margin-left: $margin-side;
+        position: relative;
+    }
+    @media(min-width: $breakpoint-desktop){
+        width: 200px;
+        height: 200px;
+    }
+    @media(min-width: 1346p){
+        width: 160px;
+        height: 160px;
+    }
+}
+.imgProfileMobile{
+    
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    margin-top: 25%;
+    border: 5px solid white;
+    @media(min-width: $breakpoint-tablet){
+        display: none;
+    }
+}
+.imgbackBig{
+    width: 100%;
+    height: 100%;
+    @media(max-width: $breakpoint-tablet){
+        display: none;
+    }
+}
+.tlbProfile{
+    width: 90%;
+    @media(min-width: $breakpoint-tablet){
+        width: 100%;
+    }
+}
+.containerUserName p{
+    margin-left: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin-bottom: 30px;
+
+    @media(max-width: $breakpoint-desktop){
+        font-size: 13px;
+    }
+}
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+}
+.item p{
+    font-family: 'Montserrat', sans-serif;
+    color: #162668;
+    font-size: 18px;
+
+    @media(max-width: $breakpoint-desktop){
+        font-size: 13px;
+    }
+}
+.iconNum{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.iconNum p{
+    margin-left: 5px;
+
+    @media(max-width: $breakpoint-desktop){
+        font-size: 13px;
+    }
+}
+.abProjHalf{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+
+    @media(min-width: $breakpoint-tablet){
+        background-color: #F7F9FA;
+        width: 100%;
+    }
+}
+.dividerProfile{
+    height: 100%;
+    width: 1px;
+    background-color: #90A4AE;
+
+    @media(min-width: $breakpoint-tablet){
+        background-color: #90A4AE;
+        height: 1px ;
+        width: 100%;
+    }
+}
+.containerbioDesc p{
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+    color: #162668;
+}
+.projectItem{
+    width: 80%;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+}
+.containerTextProject{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+    padding-bottom: 10px;
+
+    @media(min-width: $breakpoint-tablet){
+        display: none;
+    }    
+}
+.projectItem h3{
+    color: #0366D6;
+    font-family: 'Montserrat', sans-serif;
+}
+.projectItem p{
+    color: #586069;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 450px;
+
+    @media(max-width: 1530px){
+        max-width: 350px;
+    }
+    @media(max-width: 1284px){
+        max-width: 250px;
+    }
+    @media(max-width: 1058px){
+        max-width: 150px;
+    }
+    @media(max-width: 864px){
+        max-width: 109px;
+    }
+    @media(max-width: $breakpoint-tablet){
+        max-width: 100%;
+    }
+
+}
+.containerDeskInfos h3{
+    @media(max-width: $breakpoint-desktop){
+        font-size: 20px !important;
+    }
+}
+#labelProfile{
+    margin-top: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 0px;
+
+    @media(max-width: 1346px){
+        font-size: 21px;
+    }
+}
+.pointerlanguage{
+    width: 15px;
+    height: 15px;
+    clip-path: circle(40%);
+    background-color: red;
+}
+.circleLoader{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #283747;
+    border-top: 5px solid #EAECEE;
+    animation: animate 1.5s infinite linear;
+}
+@keyframes animate{
+    0%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}

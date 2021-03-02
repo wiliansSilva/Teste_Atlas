@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;1,200&display=swap');
+
+
+$margin-side: 20px;
+$breakpoint-monitor: 1201px;
+$breakpoint-desktop: 1024px;
+$breakpoint-tablet: 768px;
+$breakpoint-phone: 480px;
+
+
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #F8FAFB;
+}
+.containerSearchList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+}
+.containerSearchLabel{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 80%;
+    justify-content: space-between;
+    
+    margin-top: $margin-side;
+
+    @media(max-width: $breakpoint-tablet){
+        display: none;
+    }
+}
+.containerList{
+    height: 100vH;
+    width: 100vW;
+    background-color: #F8FAFB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerItems{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    @media(min-width: $breakpoint-tablet){
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: center;
+        order: 5;
+        background-color: white;
+        width: 80%;
+        
+    }
+}
+.containerItem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 75%;
+    margin-top: $margin-side;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    @media(min-width: $breakpoint-tablet){
+        width: 200px;
+        height: 250px;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        justify-content: center;
+        border: 1px solid #DEDEDE;
+        flex-basis: 15%;
+        margin-bottom: $margin-side;
+    }
+}
+.tlb{
+    width: 90%;
+    @media(min-width: $breakpoint-tablet){
+        width: 100%;
+    }
+}
+
+.imgPerfil{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.circleLoader{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #283747;
+    border-top: 5px solid #EAECEE;
+    animation: animate 1.5s infinite linear;
+}
+@keyframes animate{
+    0%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}
+#name{
+    font-family: 'Montserrat', sans-serif;
+    color: #162668, 100%;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: $margin-side;
+
+    @media(min-width: $breakpoint-tablet){
+        margin-left: 0px;
+    }
+}
+
+#labelResults{
+    margin-left: 8%;
+}
+
+#searchBarMob{
+    @media(min-width: $breakpoint-tablet){
+        display: none;
+    }   
+}
+
+#listDivider{
+    width: 70%;
+    height: 1px;
+    background-color: #DEDEDE;
+}
